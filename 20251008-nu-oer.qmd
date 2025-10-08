@@ -1,6 +1,6 @@
 ---
-title: "Model Evaluation & Selection"
-subtitle: "MCDC Virtual Workshop on<br>Teaching Introductory Machine Learning"
+title: "My OER Journey"
+# subtitle: "MCDC Virtual Workshop on<br>Teaching Introductory Machine Learning"
 date: today
 
 format: 
@@ -8,7 +8,7 @@ format:
     theme: [default, custom.scss]
     logo: "image/StatisticsDataScience-LogoShort-HorizPurple.png"
     preview-links: auto
-    slide-number: c/t
+    # slide-number: c/t
     transition: fade
     background-transition: fade
     embed-resources: true
@@ -32,127 +32,45 @@ editor:
     wrap: 72
 ---
 
-## Quick overview of context
+## Where I Started {.center}
 
-Where does model evaluation and selection come up during an introductory
-machine learning course?
+## OER Projects
 
-. . .
+- [Introduction to Statistics and Data Science (STAT 202)](https://nustat.github.io/intro-stat-data-sci/)
 
-1.  Early on, maybe first day --- How do we know if a model is any good?
+- [Introduction to Data Science with Python (STAT 303-1)](https://nustat.github.io/DataScience_Intro_python/)
 
-2.  During model building/training --- How to pick the "best" model?
-
-3.  Discussion of final model --- How will the final model preform?
+- [r4dsTutorialsNU (R package)](https://nustat.github.io/r4dsTutorialsNU/)
 
 . . .
 
-### Important related concepts/topics:
+- [isdsTutorials (R package)](https://nustat.github.io/isdsTutorials/)
 
-Data spending/allocation, performance vs comparisons, overfitting,
-bias-variance trade-off, metrics, & explaining models
+- [Introduction to Programming for Data Science](https://nustat.github.io/Intro_to_programming_for_data_sci/) 
 
-## Supervised learning schema
+- [r4dsQuizzes (R package)](https://nustat.github.io/r4dsQuizzes/)
 
-![A schematic for the typical modeling process from [Tidymodeling with
-R](https://www.tmwr.org/)](image/modeling-process.png){fig-align="center"
-width="500"}
+## Student Feedback
 
-## How do we know if a model is any good?
+> I also feel like compared to other math classes offered, statistics is the most accessible for those who identify as low-income or maybe do not want to pay an exorbitant amount of money for a textbook, access code, and web assign.
+>
+> Student (STAT 202)
 
-Main objective is prediction!
+## What I have found useful
 
-Take a set of predictors/features $X$ and use them to predict an
-outcome/target $Y$
+- Take advantage of OER support and expertise
 
-$$\widehat{Y} = \widehat{f}(X)$$ This assumes there exists an $f()$ such
-that $Y = f(X) + \epsilon$ ... the truth!
+- Collaborate 
 
-Assess the residuals/errors!
+- Build a Departmental Community
 
-$$Y - \widehat{Y} = f(X) - \widehat{f}(X) + \epsilon$$
+- Look for Multiple Funding Sources
 
-## Residuals
+- Use/learn collaboration tools
 
-![](image/residuals.png){fig-align="center" width="300"}
+- Iterate and plan for maintenance
 
-## Mean Squared Error
+## Thank you!
 
-$$E[(Y - \widehat{Y})^2] = E[(f(X) - \widehat{f}(X))^2] +  \mbox{var}(\epsilon)$$
+![](image/clipart2639199.png){fig-align="center"}
 
-. . .
-
--   Reducible error vs irreducible error
-
--   Overfitting
-
--   Training vs Testing (Data spending/ allocation)
-
-## Classification
-
-![](image/confusion-matrix.png){fig-align="center" width="1028"}
-
-## Initial data split
-
-Avoiding overfitting & the goal is out of sample performance estimate
-
-![](image/initial-split.png){fig-align="center" width="800"}
-
-## Supervised learning schema
-
-![A schematic for the typical modeling process from [Tidymodeling with
-R](https://www.tmwr.org/)](image/modeling-process.png){fig-align="center"}
-
-## Splitting data for training
-
-Pick an evaluation metric for model comparisons!
-
-![](image/training-splits.png){fig-align="center" width="800"}
-
-# Which metric matters!
-
-![](image/metrics-matter.png){fig-align="center"}
-
-## Common Metrics
-
-### Regression 
-
-- Mean squared error (MSE)
-- Root Mean Squared error (RMSE)
-- R-squred (RSQ or $R^2$)
-- Mean absolute error/difference (MAE or MAD)
-- many more ...
-
-### Classification
-
-- Accuracy 
-- Area under the curve (AUC)
-- Recall
-- Sensitivity
-- many more ...
-
-## Selecting the "best" model
-
-- Don't always have to go with best performing model
-
-- 1 standard error rule: Are the competing models really preforming differently?
-
-- Occam's Razor or KISS 
-
-## Evaluating the final model
-
-- Using the test data
-
-- Not restricted to metric used for comparison!
-
-- Might use metrics that are easier to explain
-
-- Be careful of causal interpretations 
-
-## Things to keep in mind
-
-- Measurement error 
-- Data quality 
-- Missing data
-- Baseline model or null model
-- Selecting which models to fit
