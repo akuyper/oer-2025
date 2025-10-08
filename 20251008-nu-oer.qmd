@@ -1,0 +1,158 @@
+---
+title: "Model Evaluation & Selection"
+subtitle: "MCDC Virtual Workshop on<br>Teaching Introductory Machine Learning"
+date: today
+
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+    logo: "image/StatisticsDataScience-LogoShort-HorizPurple.png"
+    preview-links: auto
+    slide-number: c/t
+    transition: fade
+    background-transition: fade
+    embed-resources: true
+    
+title-slide-attributes:
+    data-background-image: https://www.northwestern.edu/brand/images/zoom-academic-facets.jpg
+    # change from cover to contian for printing pdf
+    data-background-size: contain
+    data-heading-color: "#FFFFFF"
+    
+revealjs-plugins:
+  - revealjs-text-resizer
+    
+from: markdown+emoji
+
+execute:
+  echo: false
+
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## Quick overview of context
+
+Where does model evaluation and selection come up during an introductory
+machine learning course?
+
+. . .
+
+1.  Early on, maybe first day --- How do we know if a model is any good?
+
+2.  During model building/training --- How to pick the "best" model?
+
+3.  Discussion of final model --- How will the final model preform?
+
+. . .
+
+### Important related concepts/topics:
+
+Data spending/allocation, performance vs comparisons, overfitting,
+bias-variance trade-off, metrics, & explaining models
+
+## Supervised learning schema
+
+![A schematic for the typical modeling process from [Tidymodeling with
+R](https://www.tmwr.org/)](image/modeling-process.png){fig-align="center"
+width="500"}
+
+## How do we know if a model is any good?
+
+Main objective is prediction!
+
+Take a set of predictors/features $X$ and use them to predict an
+outcome/target $Y$
+
+$$\widehat{Y} = \widehat{f}(X)$$ This assumes there exists an $f()$ such
+that $Y = f(X) + \epsilon$ ... the truth!
+
+Assess the residuals/errors!
+
+$$Y - \widehat{Y} = f(X) - \widehat{f}(X) + \epsilon$$
+
+## Residuals
+
+![](image/residuals.png){fig-align="center" width="300"}
+
+## Mean Squared Error
+
+$$E[(Y - \widehat{Y})^2] = E[(f(X) - \widehat{f}(X))^2] +  \mbox{var}(\epsilon)$$
+
+. . .
+
+-   Reducible error vs irreducible error
+
+-   Overfitting
+
+-   Training vs Testing (Data spending/ allocation)
+
+## Classification
+
+![](image/confusion-matrix.png){fig-align="center" width="1028"}
+
+## Initial data split
+
+Avoiding overfitting & the goal is out of sample performance estimate
+
+![](image/initial-split.png){fig-align="center" width="800"}
+
+## Supervised learning schema
+
+![A schematic for the typical modeling process from [Tidymodeling with
+R](https://www.tmwr.org/)](image/modeling-process.png){fig-align="center"}
+
+## Splitting data for training
+
+Pick an evaluation metric for model comparisons!
+
+![](image/training-splits.png){fig-align="center" width="800"}
+
+# Which metric matters!
+
+![](image/metrics-matter.png){fig-align="center"}
+
+## Common Metrics
+
+### Regression 
+
+- Mean squared error (MSE)
+- Root Mean Squared error (RMSE)
+- R-squred (RSQ or $R^2$)
+- Mean absolute error/difference (MAE or MAD)
+- many more ...
+
+### Classification
+
+- Accuracy 
+- Area under the curve (AUC)
+- Recall
+- Sensitivity
+- many more ...
+
+## Selecting the "best" model
+
+- Don't always have to go with best performing model
+
+- 1 standard error rule: Are the competing models really preforming differently?
+
+- Occam's Razor or KISS 
+
+## Evaluating the final model
+
+- Using the test data
+
+- Not restricted to metric used for comparison!
+
+- Might use metrics that are easier to explain
+
+- Be careful of causal interpretations 
+
+## Things to keep in mind
+
+- Measurement error 
+- Data quality 
+- Missing data
+- Baseline model or null model
+- Selecting which models to fit
